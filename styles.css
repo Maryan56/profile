@@ -1,0 +1,99 @@
+/* Base styles */
+* { box-sizing: border-box; }
+html:focus-within { scroll-behavior: smooth; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #0f172a;            /* slate-900 */
+  background: blueviolet;       /* slate-50 */
+}
+
+:root {
+  --accent: #2563eb;         /* blue-600 */
+  --accent-contrast: #ffffff;
+  --card: #ffffff;
+  --card-border: #e2e8f0;    /* slate-200 */
+  --muted: #334155;          /* slate-700 */
+  --ring: rgba(37, 99, 235, 0.3);
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+}
+
+/* Layout */
+.section { padding: 72px 20px; max-width: 1100px; margin: 0 auto; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+p { margin: 0 0 16px; }
+.lead { font-size: 1.15rem; color: var(--muted); }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 14px 20px; background: rgba(248,250,252,0.8);
+  backdrop-filter: blur(6px); border-bottom: 1px solid var(--card-border);
+}
+.logo { font-weight: 800; text-decoration: none; color: #0f172a; font-size: 1.15rem; }
+.logo span { color: var(--accent); }
+
+.nav a {
+  text-decoration: none; color: #0f172a; margin-left: 16px;
+  padding: 8px 10px; border-radius: 12px;
+}
+.nav a:hover, .nav a:focus { outline: none; background: #e2e8f0; }
+
+.hero { padding-top: 90px; }
+.hero-content { display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: center; }
+.avatar { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #e2e8f0; background: #fff; }
+
+.accent { color: var(--accent); }
+.cta-row { display: flex; gap: 12px; margin-top: 12px; }
+
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 600; border-radius: 999px;
+  padding: 10px 16px; border: 1px solid var(--card-border); color: #0f172a; background: #fff;
+  box-shadow: var(--shadow);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
+
+.pill-list { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; }
+.pill-list li {
+  list-style: none; background:greenyellow; color:blue; padding: 8px 12px; border-radius: 999px; font-weight: 600;
+}
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 18px; padding: 18px;
+  box-shadow: var(--shadow);
+}
+.card h3 { margin-bottom: 6px; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+.tags span { font-size: .85rem; background: #eff6ff; color: #1e40af; padding: 4px 8px; border-radius: 999px; }
+.links a { margin-right: 12px; text-decoration: none; color: var(--accent); font-weight: 700; }
+
+.timeline { display: grid; gap: 16px; }
+.t-item { background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); }
+.t-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; color: var(--muted); }
+.t-head strong { color: burlywood; }
+
+.contact-list { display: grid; gap: 6px; padding-left: 0; list-style: none; }
+.contact-form { display: grid; gap: 12px; max-width: 560px; margin-top: 12px; }
+.contact-form label { display: grid; gap: 6px; font-weight: 600; }
+.contact-form input, .contact-form textarea {
+  padding: 10px 12px; border-radius: 12px; border: 1px solid var(--card-border); background: #fff;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: 3px solid var(--ring); border-color: var(--accent); }
+
+.site-footer { text-align: center; padding: 36px 20px; color: var(--muted); border-top: 1px solid var(--card-border); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .avatar { justify-self: center; }
+  .grid { grid-template-columns: 1fr; }
+  .nav { display: flex; overflow-x: auto; }
+  .nav a { margin-left: 8px; white-space: nowrap; }
+}
